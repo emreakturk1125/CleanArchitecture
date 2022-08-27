@@ -1,0 +1,6 @@
+﻿    ****************** ÖNEMLİ ************************
+
+-> demoProjects içine yeni bir proje klasörü eklenecekse ""sağ tık"" > ""New Solution Folder""  yaplıdıktan sonra aynı path'e manuel olarakta aynı isimde klasör eklenmelidir.
+-> Klasör içine eklencek class library     Sap Tık > Add > New Project  dedikten sonra   eklnecek path dikkate et çünkü başka yere ekliyor
+
+-> Clean Architecture
