@@ -3,4 +3,42 @@
 -> demoProjects içine yeni bir proje klasörü eklenecekse ""sağ tık"" > ""New Solution Folder""  yaplıdıktan sonra aynı path'e manuel olarakta aynı isimde klasör eklenmelidir.
 -> Klasör içine eklencek class library     Sap Tık > Add > New Project  dedikten sonra   eklnecek path dikkate et çünkü başka yere ekliyor
 
--> Clean Architecture
+ 
+
+-> DOMAIN DRIVEN DEVELOPMENT tekniğidir.
+
+-> Clean Architecture (Onion Architecture (tasarım kalıbıdır.) referans alır. )
+   
+* Bu mimaride yazılım belirli katmanlara ayrılmıştır bunlar Domain, Application, Infrastructure ve Presentation‘dır.
+  Avantajları;
+* Framework bağımsız
+* Test edilebilir (Test güdümlü bir yapıdır)
+* Arayüz bağımsız
+* Veritabanı bağımsız
+  
+-> Net Core 6.0
+
+-> CQRS
+
+CQRS, özünde Command Query Responsibility Segregation‘ın kısaltılmış halidir.
+Açılımından da anlaşılacağı üzere ‘Command’ ve ‘Query’ sorumluluklarının ayrılması prensibini esas alan bir yaklaşımı savunmaktadır. 
+
+
+Commands
+Yeni bir veri eklemek ya da var olan veri üzerinde güncelleme yapmak için kullanılır. Örnek vermek gerekirse; Insert, Update, Delete. Geriye veri döndürmez. Örnek olarak;
+
+
+Queries
+Veritabanından veri almak için kullanılır. Geriye sadece belirtilen modeli döner ve veri üzerinde herhangi bir değişiklik yapmaz. Oluşturacağımız Query’lerimiz genellikle ‘Get’ ön eki ile isimlendirilir. Örnek olarak;
+
+
+CQRS Ne Zaman Kullanılmalı ?
+
+Birbirinden ayrı sistemlerde olası bir servisin hata vermesi durumunda bu hatanın sistemin akışına olumsuz yönde etkisi olmuyorsa kullanılabilir.
+Kompleks iş kurallarının olabileceği veya iş kurallarının sık sık değiştiği yapılarda kullanılabilir.
+Yüksek veri trafiğinin olduğu sistemlerde kullanılabilir.
+
+CQRS’i Ne Zaman Kullanmamalıyız ?
+İş kurallarının basit ve çok değişmediği sistemlerde,
+Basit CRUD işlemlerinin yapıldığı sistemlerde
+CQRS kullanılması önerilmez.
