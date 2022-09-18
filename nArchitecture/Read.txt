@@ -18,21 +18,29 @@
   
 -> Net Core 6.0
 
--> CQRS
+***********************  CQRS  *******************************
 
-CQRS, özünde Command Query Responsibility Segregation‘ın kısaltılmış halidir.
+-> CQRS Mediatr alt yapısı ile kullandık
+
+-> MediatR; Mediator pattern’inin kullanılmasını sağlayan bir kütüphanedir.
+Biz örneğimizde bu kütüphaneyi CQRS pattern için, command query modelleri ve bu modelleri handle ederek işlemi gerçekleştirecek sınıflar arasındaki iletişimi,
+loosely coupled olarak tek bir noktadan sağlamak için kullanacağız.
+
+-> CQRS, özünde (Command Query Responsibility Segregation)‘ın kısaltılmış halidir.
 Açılımından da anlaşılacağı üzere ‘Command’ ve ‘Query’ sorumluluklarının ayrılması prensibini esas alan bir yaklaşımı savunmaktadır. 
 
-
-Commands
-Yeni bir veri eklemek ya da var olan veri üzerinde güncelleme yapmak için kullanılır. Örnek vermek gerekirse; Insert, Update, Delete. Geriye veri döndürmez. Örnek olarak;
-
-
-Queries
-Veritabanından veri almak için kullanılır. Geriye sadece belirtilen modeli döner ve veri üzerinde herhangi bir değişiklik yapmaz. Oluşturacağımız Query’lerimiz genellikle ‘Get’ ön eki ile isimlendirilir. Örnek olarak;
+-> Mediator pattern’den de kısaca bahsedecek olursak; aynı arayüz üzerinden türeyen nesneler arasındaki iletişimi,
+tek bir nokta üzerinden sağlamaya dayalı bir pattern’dir.İletişimi tek bir sınıf(Mediator) üzerinden sağladığı için gevşek bağlılık sağlar.
 
 
-CQRS Ne Zaman Kullanılmalı ?
+-> Commands
+   Yeni bir veri eklemek ya da var olan veri üzerinde güncelleme yapmak için kullanılır. Örnek vermek gerekirse; Insert, Update, Delete. Geriye veri döndürmez. Örnek olarak;
+
+-> Queries
+   Veritabanından veri almak için kullanılır. Geriye sadece belirtilen modeli döner ve veri üzerinde herhangi bir değişiklik yapmaz. Oluşturacağımız Query’lerimiz genellikle ‘Get’ ön eki ile isimlendirilir. Örnek olarak;
+
+
+-> CQRS Ne Zaman Kullanılmalı ?
 
 Birbirinden ayrı sistemlerde olası bir servisin hata vermesi durumunda bu hatanın sistemin akışına olumsuz yönde etkisi olmuyorsa kullanılabilir.
 Kompleks iş kurallarının olabileceği veya iş kurallarının sık sık değiştiği yapılarda kullanılabilir.
