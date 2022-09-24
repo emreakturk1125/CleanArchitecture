@@ -50,3 +50,40 @@ CQRS’i Ne Zaman Kullanmamalıyız ?
 İş kurallarının basit ve çok değişmediği sistemlerde,
 Basit CRUD işlemlerinin yapıldığı sistemlerde
 CQRS kullanılması önerilmez.
+
+
+--------------------------------------------------------------------------------------
+
+
+      Dynamic query Example
+***********************************
+
+Alttaki örnek;
+
+"sort"   => "name"  alanına göre ascending sırala
+"filter" => "name" kolonuna göre filterele ve değeri = 'Series 4' olanları getir (ya da) "dailyPrice" kolonuna göre filtrele ve değeri 1000 den büyük olanları getir demek
+
+{
+  "sort": [
+    {
+      "field": "name",
+      "dir": "asc"
+    }
+  ],
+  "filter": {
+    "field": "name",
+    "operator": "eq",                  -> eq(equal)
+    "value": "Series 4",
+    "logic": "or",
+    "filters": [
+       {
+      "field": "dailyPrice",
+      "operator": "gte",               -> gte(grater than equel)
+       "value": "1000"
+       },
+       {
+          // farklı filterları da , deyip ekleyebilirsin
+       }
+    ]
+  }
+}
