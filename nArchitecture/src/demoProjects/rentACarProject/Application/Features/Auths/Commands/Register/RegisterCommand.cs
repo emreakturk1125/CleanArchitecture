@@ -1,4 +1,6 @@
 ﻿using Application.Features.Auths.Dtos;
+using Application.Features.Auths.Rules;
+using Application.Services.Repositories;
 using Core.Security.Dtos;
 using MediatR;
 using System;
@@ -15,6 +17,8 @@ namespace Application.Features.Auths.Commands.Register
         public string IpAddress { get; set; }
         public class RegisterCommandHandler : IRequestHandler<RegisterCommand, RegisteredDto>
         {
+            private readonly AuthBusinessRules _authBusinessRules;
+            private readonly IUserRepository _userRepository;
             public Task<RegisteredDto> Handle(RegisterCommand request, CancellationToken cancellationToken)
             {
                 throw new NotImplementedException();

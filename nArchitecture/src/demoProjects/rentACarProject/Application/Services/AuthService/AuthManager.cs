@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Auths.Dtos
+namespace Application.Services.AuthService
 {
-    public class RegisteredDto : RefreshedTokenDto
+    public class AuthManager : IAuthService
     {
-
     }
 }
